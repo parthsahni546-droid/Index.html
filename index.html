@@ -7,10 +7,6 @@
 <title>Motion – Class 7 Science Test</title>
 
 <style>
-/* =========================================================
-   1. THEME VARIABLES
-   ========================================================= */
-
 :root {
   --bg: #f7e6d3;
   --card: #fffaf4;
@@ -48,11 +44,6 @@
   --line: #6a3d28;
 }
 
-
-/* =========================================================
-   2. BASE
-   ========================================================= */
-
 * {
   box-sizing: border-box;
 }
@@ -82,10 +73,7 @@ input {
   padding: 12px 10px 30px;
 }
 
-
-/* =========================================================
-   3. BACKGROUND
-   ========================================================= */
+/* BACKGROUND */
 
 .bgd {
   position: fixed;
@@ -125,10 +113,7 @@ input {
   animation-delay: -9s;
 }
 
-
-/* =========================================================
-   4. CARDS & TYPOGRAPHY
-   ========================================================= */
+/* CARDS */
 
 .card {
   background: var(--card);
@@ -161,10 +146,7 @@ p {
   margin: 0.5em 0;
 }
 
-
-/* =========================================================
-   5. BUTTONS
-   ========================================================= */
+/* BUTTONS */
 
 .btn {
   font: inherit;
@@ -185,7 +167,7 @@ p {
 }
 
 .btn:active {
-  transform: translateY(5px);
+  transform: translateY(3px);
   box-shadow: 0 1px 0 #6f2a12;
 }
 
@@ -207,10 +189,7 @@ p {
   transform: none;
 }
 
-
-/* =========================================================
-   6. HERO & ANIMATIONS
-   ========================================================= */
+/* HERO & ANIMATIONS */
 
 .hero {
   font-size: 56px;
@@ -219,7 +198,8 @@ p {
 }
 
 @keyframes rock {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-14px);
   }
 
@@ -260,10 +240,7 @@ p {
   }
 }
 
-
-/* =========================================================
-   7. RULES
-   ========================================================= */
+/* RULES */
 
 .rule {
   display: flex;
@@ -298,10 +275,7 @@ p {
   accent-color: var(--rust);
 }
 
-
-/* =========================================================
-   8. QUIZ HEADER & NAVIGATION
-   ========================================================= */
+/* QUIZ HEADER */
 
 .top {
   display: flex;
@@ -325,6 +299,8 @@ p {
   background: var(--ok);
   animation: pulse 1.6s infinite;
 }
+
+/* NAVIGATION */
 
 .nav {
   display: grid;
@@ -378,10 +354,7 @@ p {
   font-size: 10px;
 }
 
-
-/* =========================================================
-   9. QUESTION & TIMER
-   ========================================================= */
+/* QUESTION */
 
 .qrow {
   display: flex;
@@ -396,6 +369,8 @@ p {
   line-height: 1.4;
   margin: 0;
 }
+
+/* TIMER */
 
 .ring {
   position: relative;
@@ -424,10 +399,7 @@ p {
   animation: blink 0.5s infinite;
 }
 
-
-/* =========================================================
-   10. OPTIONS
-   ========================================================= */
+/* OPTIONS */
 
 .opt {
   display: flex;
@@ -480,10 +452,7 @@ p {
   opacity: 0.75;
 }
 
-
-/* =========================================================
-   11. QUIZ FOOTER & MESSAGES
-   ========================================================= */
+/* FOOTER */
 
 .foot {
   display: flex;
@@ -501,10 +470,7 @@ p {
   margin: 8px 0;
 }
 
-
-/* =========================================================
-   12. TOAST & MODAL
-   ========================================================= */
+/* TOAST */
 
 .toast {
   position: fixed;
@@ -527,6 +493,8 @@ p {
   transform: translate(-50%, 0);
 }
 
+/* MODAL */
+
 .modal {
   position: fixed;
   inset: 0;
@@ -542,25 +510,25 @@ p {
   animation: pop 0.35s;
 }
 
-
-/* =========================================================
-   13. OTHER COMPONENTS
-   ========================================================= */
+/* OTHER */
 
 .yn {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
-  margin-top: 16px;
-  animation: pop 0.4s;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
 }
 
 .two {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .tick {
@@ -607,10 +575,7 @@ select {
   float: right;
 }
 
-
-/* =========================================================
-   14. RESPONSIVE
-   ========================================================= */
+/* RESPONSIVE */
 
 @media (min-width: 640px) {
   .nav {
@@ -634,10 +599,6 @@ select {
 
 <body>
 
-<!-- =======================================================
-     BACKGROUND
-     ======================================================= -->
-
 <div class="bgd">
   <i></i>
   <i></i>
@@ -647,108 +608,196 @@ select {
 <div id="app"></div>
 <div class="toast" id="toast"></div>
 
-
 <script>
+
 /* =========================================================
-   1. QUESTIONS
+   QUESTIONS
    ========================================================= */
 
 const QUESTIONS = [
   [
     "Which formula is used to calculate speed?",
-    ["Distance × Time", "Distance ÷ Time", "Time ÷ Distance", "Distance + Time"],
+    [
+      "Distance × Time",
+      "Distance ÷ Time",
+      "Time ÷ Distance",
+      "Distance + Time"
+    ],
     1
   ],
+
   [
     "What is the SI unit of speed?",
-    ["km/h", "m/min", "m/s", "cm/h"],
+    [
+      "km/h",
+      "m/min",
+      "m/s",
+      "cm/h"
+    ],
     2
   ],
+
   [
     "A car travels 120 km in 2 hours. What is its speed?",
-    ["40 km/h", "240 km/h", "100 km/h", "60 km/h"],
+    [
+      "40 km/h",
+      "240 km/h",
+      "100 km/h",
+      "60 km/h"
+    ],
     3
   ],
+
   [
     "Which instrument shows the distance travelled by a vehicle?",
-    ["Odometer", "Speedometer", "Thermometer", "Stopwatch"],
+    [
+      "Odometer",
+      "Speedometer",
+      "Thermometer",
+      "Stopwatch"
+    ],
     0
   ],
+
   [
     "What does a speedometer show?",
-    ["Distance travelled", "Time taken", "Weight of the vehicle", "Speed of the vehicle"],
+    [
+      "Distance travelled",
+      "Time taken",
+      "Weight of the vehicle",
+      "Speed of the vehicle"
+    ],
     3
   ],
+
   [
     "The motion of a pendulum is an example of which type of motion?",
-    ["Periodic motion", "Straight line motion", "Circular motion", "Random motion"],
+    [
+      "Periodic motion",
+      "Straight line motion",
+      "Circular motion",
+      "Random motion"
+    ],
     0
   ],
+
   [
     "What is the time period of a pendulum?",
-    ["Time of one second", "Time taken to complete one oscillation", "Time of 10 oscillations", "Time for the bob to stop"],
+    [
+      "Time of one second",
+      "Time taken to complete one oscillation",
+      "Time of 10 oscillations",
+      "Time for the bob to stop"
+    ],
     1
   ],
+
   [
     "What does the distance-time graph of an object moving with uniform speed look like?",
-    ["Curved line", "Zigzag line", "Straight slanted line", "Circle"],
+    [
+      "Curved line",
+      "Zigzag line",
+      "Straight slanted line",
+      "Circle"
+    ],
     2
   ],
+
   [
     "What is the motion called when an object covers equal distances in equal intervals of time?",
-    ["Non-uniform motion", "Uniform motion", "Periodic motion", "Rest"],
+    [
+      "Non-uniform motion",
+      "Uniform motion",
+      "Periodic motion",
+      "Rest"
+    ],
     1
   ],
+
   [
     "Which of these is an example of non-uniform motion?",
-    ["A car moving in city traffic", "A ceiling fan rotating steadily", "The second hand of a clock", "A train at constant speed on a straight track"],
+    [
+      "A car moving in city traffic",
+      "A ceiling fan rotating steadily",
+      "The second hand of a clock",
+      "A train at constant speed on a straight track"
+    ],
     0
   ],
+
   [
     "A cyclist covers 30 m in 10 s. What is the speed?",
-    ["3 m/s", "300 m/s", "0.3 m/s", "20 m/s"],
+    [
+      "3 m/s",
+      "300 m/s",
+      "0.3 m/s",
+      "20 m/s"
+    ],
     0
   ],
+
   [
     "Which quantity is measured in kilometres?",
-    ["Time", "Speed", "Distance", "Oscillation"],
+    [
+      "Time",
+      "Speed",
+      "Distance",
+      "Oscillation"
+    ],
     2
   ],
+
   [
     "Which instrument is used to measure small intervals of time?",
-    ["Odometer", "Stopwatch", "Speedometer", "Ruler"],
+    [
+      "Odometer",
+      "Stopwatch",
+      "Speedometer",
+      "Ruler"
+    ],
     1
   ],
+
   [
     "A pendulum completes 20 oscillations in 40 seconds. Its time period is:",
-    ["20 s", "0.5 s", "2 s", "800 s"],
+    [
+      "20 s",
+      "0.5 s",
+      "2 s",
+      "800 s"
+    ],
     2
   ],
+
   [
     "A body is said to be at rest when:",
-    ["Its position changes with time", "Its position does not change with time", "It moves in a circle", "It moves with uniform speed"],
+    [
+      "Its position changes with time",
+      "Its position does not change with time",
+      "It moves in a circle",
+      "It moves with uniform speed"
+    ],
     1
   ]
 ];
 
-
 /* =========================================================
-   2. CONSTANTS
+   CONSTANTS
    ========================================================= */
 
 const TOTAL_QUESTIONS = QUESTIONS.length;
 const SOLVE_TIME = 30;
 const REVISION_TIME = 15;
 const OPTION_LABELS = "ABCD";
+
 const SECTIONS = [
   "Fill in the Blanks",
   "Assertion & Reasoning",
   "One Word"
 ];
 
-
 /* =========================================================
-   3. APP STATE
+   STATE
    ========================================================= */
 
 const STATE = {
@@ -757,7 +806,6 @@ const STATE = {
   revisionTime: Array(TOTAL_QUESTIONS).fill(REVISION_TIME),
   locked: Array(TOTAL_QUESTIONS).fill(false),
   skipped: Array(TOTAL_QUESTIONS).fill(false),
-
   currentQuestion: 0,
   mode: "solve",
   timer: null
@@ -765,9 +813,8 @@ const STATE = {
 
 const app = document.getElementById("app");
 
-
 /* =========================================================
-   4. GENERAL UTILITIES
+   UTILITIES
    ========================================================= */
 
 function toast(message) {
@@ -790,15 +837,12 @@ function stopTimer() {
 
 function showScreen(html) {
   stopTimer();
-
   app.innerHTML = html;
-
   window.scrollTo(0, 0);
 }
 
-
 /* =========================================================
-   5. WELCOME SCREEN
+   WELCOME
    ========================================================= */
 
 function welcome() {
@@ -811,21 +855,27 @@ function welcome() {
 
       <p>Class 7 · Science</p>
 
-      <p>Beat the clock. Answer smart. Score big!</p>
+      <p>
+        Beat the clock. Answer smart. Score big!
+      </p>
 
       <div class="two">
-        <button class="btn" onclick="showRules('mcq')">
+
+        <button
+          class="btn"
+          onclick="showRules('mcq')"
+        >
           Start Test
         </button>
+
       </div>
 
     </div>
   `);
 }
 
-
 /* =========================================================
-   6. RULES
+   RULES
    ========================================================= */
 
 function showRules(type) {
@@ -834,31 +884,76 @@ function showRules(type) {
 
     mcq: {
       title: "📜 Read the Rules First",
+
       checkbox: "I have read all the rules",
+
       button: "I'm Ready",
+
       action: startSolve,
 
       items: [
-        ["⏱️", "You get only <b>30 seconds</b> for each question."],
-        ["⏭️", "If time runs out, the question is <b>skipped and locked</b>. Unanswered = 0 marks."],
-        ["⏸️", "Only the question on your screen has a running timer. Leave it, and it pauses."],
-        ["💾", "Your option is saved as soon as you tap it. You can change it later if time is left."],
-        ["🧭", "Use the 1–15 bar on top to jump to any question."],
-        ["🔄", "At the end you can revise: <b>15 seconds</b> per question."]
+        [
+          "⏱️",
+          "You get only <b>30 seconds</b> for each question."
+        ],
+
+        [
+          "⏭️",
+          "If time runs out, the question is <b>skipped and locked</b>. Unanswered = 0 marks."
+        ],
+
+        [
+          "⏸️",
+          "Only the question on your screen has a running timer. Leave it, and it pauses."
+        ],
+
+        [
+          "💾",
+          "Your option is saved as soon as you tap it. You can change it later if time is left."
+        ],
+
+        [
+          "🧭",
+          "Use the 1–15 bar on top to jump to any question."
+        ],
+
+        [
+          "🔄",
+          "At the end you can revise: <b>15 seconds</b> per question."
+        ]
       ]
     },
 
     rev: {
+
       title: "🔄 Revision Rules",
+
       checkbox: "I have understood the revision rules",
+
       button: "OK, I have understood",
+
       action: startRevision,
 
       items: [
-        ["⏱️", "Each question gets <b>15 seconds</b> for revision."],
-        ["⏪", "Jump to any question. Its timer resumes from where you left it."],
-        ["🔁", "No change in 15 seconds? Your <b>old answer stays</b>."],
-        ["🔒", "Skipped or locked questions cannot be opened for changes."]
+        [
+          "⏱️",
+          "Each question gets <b>15 seconds</b> for revision."
+        ],
+
+        [
+          "⏪",
+          "Jump to any question. Its timer resumes from where you left it."
+        ],
+
+        [
+          "🔁",
+          "No change in 15 seconds? Your <b>old answer stays</b>."
+        ],
+
+        [
+          "🔒",
+          "Skipped or locked questions cannot be opened for changes."
+        ]
       ]
     }
 
@@ -867,11 +962,15 @@ function showRules(type) {
   window.startRulesAction = rules.action;
 
   showScreen(`
+
     <div class="card">
 
-      <h2 class="center">${rules.title}</h2>
+      <h2 class="center">
+        ${rules.title}
+      </h2>
 
       ${rules.items.map((item, index) => `
+
         <div
           class="rule"
           style="animation-delay:${index * 0.45}s"
@@ -879,18 +978,26 @@ function showRules(type) {
           <b>${item[0]}</b>
           <span>${item[1]}</span>
         </div>
+
       `).join("")}
 
       <label class="chk">
+
         <input
           type="checkbox"
           id="rulesCheckbox"
-          onchange="document.getElementById('rulesGo').disabled = !this.checked"
+          onchange="
+            document.getElementById('rulesGo').disabled =
+            !this.checked
+          "
         >
+
         ${rules.checkbox}
+
       </label>
 
       <div class="center">
+
         <button
           class="btn"
           id="rulesGo"
@@ -899,32 +1006,38 @@ function showRules(type) {
         >
           ${rules.button}
         </button>
+
       </div>
 
     </div>
+
   `);
 }
 
-
 /* =========================================================
-   7. TEST START
+   START TEST / REVISION
    ========================================================= */
 
 function startSolve() {
+
   STATE.mode = "solve";
+
   STATE.currentQuestion = 0;
+
   renderQuestion();
 }
 
 function startRevision() {
+
   STATE.mode = "rev";
+
   STATE.currentQuestion = 0;
+
   renderQuestion();
 }
 
-
 /* =========================================================
-   8. TIMER / EDITABILITY
+   TIMER HELPERS
    ========================================================= */
 
 function isEditable(index) {
@@ -940,95 +1053,125 @@ function isEditable(index) {
 }
 
 function getTime(index) {
+
   return STATE.mode === "solve"
     ? STATE.solveTime[index]
     : STATE.revisionTime[index];
 }
 
-
 /* =========================================================
-   9. QUESTION SCREEN
+   QUESTION SCREEN
    ========================================================= */
 
 function renderQuestion() {
 
   const index = STATE.currentQuestion;
+
   const isRevision = STATE.mode === "rev";
+
   const question = QUESTIONS[index];
 
   const editable = isEditable(index);
 
-  const navigation = QUESTIONS.map((_, questionIndex) => {
+  const navigation = QUESTIONS.map(
+    (_, questionIndex) => {
 
-    let className = "nb";
+      let className = "nb";
 
-    if (STATE.skipped[questionIndex]) {
-      className += " sk";
-    } else if (STATE.answers[questionIndex] !== null) {
-      className += " ans";
+      if (STATE.skipped[questionIndex]) {
+
+        className += " sk";
+
+      } else if (
+        STATE.answers[questionIndex] !== null
+      ) {
+
+        className += " ans";
+
+      }
+
+      if (questionIndex === index) {
+
+        className += " cur";
+
+      }
+
+      const lockIcon =
+        STATE.locked[questionIndex]
+          ? "<small>🔒</small>"
+          : "";
+
+      return `
+
+        <button
+          class="${className}"
+          onclick="goToQuestion(${questionIndex})"
+        >
+
+          ${questionIndex + 1}
+
+          ${lockIcon}
+
+        </button>
+
+      `;
+
     }
-
-    if (questionIndex === index) {
-      className += " cur";
-    }
-
-    const lockIcon = STATE.locked[questionIndex]
-      ? "<small>🔒</small>"
-      : "";
-
-    return `
-      <button
-        class="${className}"
-        onclick="goToQuestion(${questionIndex})"
-      >
-        ${questionIndex + 1}
-        ${lockIcon}
-      </button>
-    `;
-
-  }).join("");
-
+  ).join("");
 
   let lockMessage = "";
 
   if (!editable) {
 
     if (STATE.skipped[index]) {
+
       lockMessage = `
+
         <div class="lockmsg">
           🔒 Skipped (time over). This question is locked.
         </div>
-      `;
-    }
 
-    else if (STATE.locked[index]) {
+      `;
+
+    } else if (STATE.locked[index]) {
+
       lockMessage = `
+
         <div class="lockmsg">
           🔒 Time over. Your saved answer is locked.
         </div>
-      `;
-    }
 
-    else {
+      `;
+
+    } else {
+
       lockMessage = `
+
         <div class="lockmsg">
           🔒 Revision time over. Your old answer stays.
         </div>
+
       `;
     }
   }
 
-
   showScreen(`
+
     <div class="card">
 
       <div class="top">
 
         <span class="badge ${isRevision ? "rev" : ""}">
-          ${isRevision ? "🔄 Revision Mode Activated" : "MCQ · Motion"}
+          ${
+            isRevision
+              ? "🔄 Revision Mode Activated"
+              : "MCQ · Motion"
+          }
         </span>
 
-        <span style="font-size:15px;font-weight:700">
+        <span
+          style="font-size:15px;font-weight:700"
+        >
           Question ${index + 1} / ${TOTAL_QUESTIONS}
         </span>
 
@@ -1046,7 +1189,10 @@ function renderQuestion() {
           ${question[0]}
         </p>
 
-        <div class="ring" id="ring">
+        <div
+          class="ring"
+          id="ring"
+        >
 
           <svg viewBox="0 0 96 96">
 
@@ -1074,63 +1220,97 @@ function renderQuestion() {
 
           </svg>
 
-          <div class="tx" id="timerText"></div>
+          <div
+            class="tx"
+            id="timerText"
+          ></div>
 
         </div>
 
       </div>
 
+      ${question[1].map(
+        (option, optionIndex) => `
 
-      ${question[1].map((option, optionIndex) => `
         <button
-          class="opt ${STATE.answers[index] === optionIndex ? "sel" : ""}"
+          class="opt ${
+            STATE.answers[index] === optionIndex
+              ? "sel"
+              : ""
+          }"
           ${editable ? "" : "disabled"}
           onclick="selectAnswer(${optionIndex})"
         >
-          <i>${OPTION_LABELS[optionIndex]}</i>
-          ${option}
-        </button>
-      `).join("")}
 
+          <i>
+            ${OPTION_LABELS[optionIndex]}
+          </i>
+
+          ${option}
+
+        </button>
+
+      `
+      ).join("")}
 
       <div class="foot">
 
         <button
           class="btn alt"
-          ${index === 0 ? "style='visibility:hidden'" : ""}
+          ${
+            index === 0
+              ? "style='visibility:hidden'"
+              : ""
+          }
           onclick="goToQuestion(${index - 1})"
         >
-          ← Verify / Previous
+          ← Previous
         </button>
 
         <button
-          class="btn ${index === TOTAL_QUESTIONS - 1 && isRevision ? "green" : ""}"
+          class="btn ${
+            index === TOTAL_QUESTIONS - 1 &&
+            isRevision
+              ? "green"
+              : ""
+          }"
           onclick="nextQuestion()"
         >
-          ${index === TOTAL_QUESTIONS - 1
-            ? (isRevision ? "Final Submit ✔" : "Finish ✔")
-            : "Next →"}
+
+          ${
+            index === TOTAL_QUESTIONS - 1
+              ? (
+                  isRevision
+                    ? "Final Submit ✔"
+                    : "Finish ✔"
+                )
+              : "Next →"
+          }
+
         </button>
 
       </div>
 
     </div>
-  `);
 
+  `);
 
   updateTimerDisplay();
 
-  STATE.timer = setInterval(tick, 1000);
+  STATE.timer = setInterval(
+    tick,
+    1000
+  );
 }
 
-
 /* =========================================================
-   10. TIMER DISPLAY
+   TIMER DISPLAY
    ========================================================= */
 
 function updateTimerDisplay() {
 
   const index = STATE.currentQuestion;
+
   const maxTime =
     STATE.mode === "rev"
       ? REVISION_TIME
@@ -1138,11 +1318,18 @@ function updateTimerDisplay() {
 
   const time = getTime(index);
 
-  const timerText = document.getElementById("timerText");
-  const arc = document.getElementById("arc");
-  const ring = document.getElementById("ring");
+  const timerText =
+    document.getElementById("timerText");
 
-  if (!timerText || !arc || !ring) return;
+  const arc =
+    document.getElementById("arc");
+
+  const ring =
+    document.getElementById("ring");
+
+  if (!timerText || !arc || !ring) {
+    return;
+  }
 
   timerText.textContent = time;
 
@@ -1162,9 +1349,8 @@ function updateTimerDisplay() {
   );
 }
 
-
 /* =========================================================
-   11. TIMER TICK
+   TIMER TICK
    ========================================================= */
 
 function tick() {
@@ -1176,13 +1362,16 @@ function tick() {
   }
 
   if (STATE.mode === "solve") {
+
     STATE.solveTime[index]--;
+
   } else {
+
     STATE.revisionTime[index]--;
+
   }
 
   updateTimerDisplay();
-
 
   if (getTime(index) <= 0) {
 
@@ -1191,30 +1380,49 @@ function tick() {
       STATE.locked[index] = true;
 
       if (STATE.answers[index] === null) {
+
         STATE.skipped[index] = true;
-        toast("⏭️ Time over. Question skipped.");
+
+        toast(
+          "⏭️ Time over. Question skipped."
+        );
+
       } else {
-        toast("⏱️ Time over. Your answer is locked.");
+
+        toast(
+          "⏱️ Time over. Your answer is locked."
+        );
       }
 
-      if (index < TOTAL_QUESTIONS - 1) {
-        STATE.currentQuestion = index + 1;
+      if (
+        index <
+        TOTAL_QUESTIONS - 1
+      ) {
+
+        STATE.currentQuestion =
+          index + 1;
+
         renderQuestion();
+
       } else {
+
         showEndChoice();
+
       }
 
     } else {
 
-      toast("⏱️ Revision time over. Old answer stays.");
+      toast(
+        "⏱️ Revision time over. Old answer stays."
+      );
+
       renderQuestion();
     }
   }
 }
 
-
 /* =========================================================
-   12. NAVIGATION
+   NAVIGATION
    ========================================================= */
 
 function goToQuestion(index) {
@@ -1231,9 +1439,8 @@ function goToQuestion(index) {
   renderQuestion();
 }
 
-
 /* =========================================================
-   13. ANSWER SELECTION
+   SELECT ANSWER
    ========================================================= */
 
 function selectAnswer(optionIndex) {
@@ -1244,57 +1451,80 @@ function selectAnswer(optionIndex) {
     return;
   }
 
-  STATE.answers[index] = optionIndex;
+  STATE.answers[index] =
+    optionIndex;
 
   renderQuestion();
 }
 
-
 /* =========================================================
-   14. NEXT QUESTION
+   NEXT QUESTION
    ========================================================= */
 
 function nextQuestion() {
 
-  const index = STATE.currentQuestion;
+  const index =
+    STATE.currentQuestion;
 
-  if (STATE.answers[index] !== null) {
+  if (
+    STATE.answers[index] !== null
+  ) {
+
     toast(
-      "✅ Your answer has been saved. You can change it later."
+      "✅ Your answer has been saved."
     );
   }
 
-  if (index < TOTAL_QUESTIONS - 1) {
+  if (
+    index <
+    TOTAL_QUESTIONS - 1
+  ) {
 
-    STATE.currentQuestion = index + 1;
+    STATE.currentQuestion =
+      index + 1;
+
     renderQuestion();
 
   } else {
 
     if (STATE.mode === "rev") {
+
       submitAnswers();
+
     } else {
+
       showEndChoice();
+
     }
   }
 }
 
-
 /* =========================================================
-   15. END OF MCQ
+   END OF MCQ
+   FIXED REVISION FLOW
    ========================================================= */
 
 function showEndChoice() {
 
   const answered =
-    STATE.answers.filter(answer => answer !== null).length;
+    STATE.answers.filter(
+      answer => answer !== null
+    ).length;
 
   showScreen(`
+
     <div class="card center">
 
-      <div class="hero" style="animation:none">📝</div>
+      <div
+        class="hero"
+        style="animation:none"
+      >
+        📝
+      </div>
 
-      <h2>You reached the end of the MCQs</h2>
+      <h2>
+        You reached the end of the MCQs
+      </h2>
 
       <p>
         Answered:
@@ -1307,27 +1537,10 @@ function showEndChoice() {
 
         <button
           class="btn alt"
-          onclick="
-            document.getElementById('revisionChoice').innerHTML = \`
-              <div class='yn'>
-                <button class='btn green' onclick='showRules(\"rev\")'>
-                  Yes, revise
-                </button>
-
-                <button
-                  class='btn'
-                  style='background:#7a6a62;box-shadow:0 6px 0 #4b4039'
-                  onclick='noRevision()'
-                >
-                  No
-                </button>
-              </div>
-            \`
-          "
+          onclick="showRevisionChoice()"
         >
           ✏️ Do you want to revise?
         </button>
-
 
         <button
           class="btn"
@@ -1341,56 +1554,110 @@ function showEndChoice() {
       <div id="revisionChoice"></div>
 
     </div>
+
   `);
 }
 
+/* =========================================================
+   SHOW REVISION YES / NO BUTTONS
+   ========================================================= */
+
+function showRevisionChoice() {
+
+  const choice =
+    document.getElementById(
+      "revisionChoice"
+    );
+
+  if (!choice) {
+    return;
+  }
+
+  choice.innerHTML = `
+
+    <div class="yn">
+
+      <button
+        class="btn green"
+        onclick="showRules('rev')"
+      >
+        Yes, revise
+      </button>
+
+      <button
+        class="btn"
+        style="
+          background:#7a6a62;
+          box-shadow:0 4px 0 #4b4039;
+        "
+        onclick="noRevision()"
+      >
+        No
+      </button>
+
+    </div>
+
+  `;
+}
 
 /* =========================================================
-   16. NO REVISION
+   NO REVISION
    ========================================================= */
 
 function noRevision() {
 
-  const modal = document.createElement("div");
+  const modal =
+    document.createElement("div");
 
   modal.className = "modal";
 
   modal.innerHTML = `
+
     <div class="card center">
 
-      <h2>You chose No</h2>
+      <h2>
+        You chose No
+      </h2>
 
       <p>
-        Since you selected No, it's your wish!
+        Since you selected No,
+        it's your wish!
         Now submit your answers.
       </p>
 
       <button
         class="btn"
-        onclick="this.closest('.modal').remove()"
+        onclick="
+          this.closest('.modal').remove()
+        "
       >
         OK
       </button>
 
     </div>
+
   `;
 
   document.body.appendChild(modal);
 }
 
-
 /* =========================================================
-   17. SUBMISSION
+   SUBMISSION
    ========================================================= */
 
 function submitAnswers() {
 
   showScreen(`
+
     <div class="card center">
 
-      <div class="tick">✅</div>
+      <div class="tick">
+        ✅
+      </div>
 
-      <h1>Your MCQs are submitted!</h1>
+      <h1>
+        Your MCQs are submitted!
+      </h1>
 
       <p>
         Let's continue to
@@ -1398,31 +1665,43 @@ function submitAnswers() {
       </p>
 
       <div class="two">
+
         <button
           class="btn"
           onclick="showProgressSection(0)"
         >
           Start Here
         </button>
+
       </div>
 
     </div>
+
   `);
 }
 
-
 /* =========================================================
-   18. UPCOMING SECTIONS
+   PROGRESS SECTIONS
    ========================================================= */
 
-function showProgressSection(sectionIndex) {
+function showProgressSection(
+  sectionIndex
+) {
 
   showScreen(`
+
     <div class="card center">
 
-      <div class="hero" style="animation:none">🚧</div>
+      <div
+        class="hero"
+        style="animation:none"
+      >
+        🚧
+      </div>
 
-      <h2>${SECTIONS[sectionIndex]}</h2>
+      <h2>
+        ${SECTIONS[sectionIndex]}
+      </h2>
 
       <p>
         This section is under progress.
@@ -1444,22 +1723,27 @@ function showProgressSection(sectionIndex) {
       </div>
 
     </div>
+
   `);
 }
 
-
 /* =========================================================
-   19. FINAL SCREEN
+   FINAL
    ========================================================= */
 
 function finishTest() {
 
   showScreen(`
+
     <div class="card center">
 
-      <div class="tick">🎉</div>
+      <div class="tick">
+        🎉
+      </div>
 
-      <h1>All your answers have been submitted!</h1>
+      <h1>
+        All your answers have been submitted!
+      </h1>
 
       <p>
         Let's check your marks.
@@ -1477,12 +1761,12 @@ function finishTest() {
       </div>
 
     </div>
+
   `);
 }
 
-
 /* =========================================================
-   20. RESULT
+   RESULT
    ========================================================= */
 
 function calculateScore() {
@@ -1495,12 +1779,16 @@ function calculateScore() {
 
 function showResult() {
 
-  const score = calculateScore();
+  const score =
+    calculateScore();
 
   showScreen(`
+
     <div class="card center">
 
-      <h2>🏆 Your Result</h2>
+      <h2>
+        🏆 Your Result
+      </h2>
 
       <div class="score">
         ${score} / ${TOTAL_QUESTIONS}
@@ -1514,6 +1802,7 @@ function showResult() {
         id="resultSection"
         onchange="showResultDetails(this.value)"
       >
+
         <option value="">
           Choose a section to view…
         </option>
@@ -1521,92 +1810,126 @@ function showResult() {
         <option value="mcq">
           📘 Check your MCQ marks
         </option>
+
       </select>
 
     </div>
 
     <div id="resultDetails"></div>
+
   `);
 }
 
-
 /* =========================================================
-   21. RESULT DETAILS
+   RESULT DETAILS
    ========================================================= */
 
 function showResultDetails(value) {
 
   const container =
-    document.getElementById("resultDetails");
+    document.getElementById(
+      "resultDetails"
+    );
 
   if (!value) {
+
     container.innerHTML = "";
+
     return;
   }
 
-  const score = calculateScore();
+  const score =
+    calculateScore();
 
   container.innerHTML = `
+
     <div
       class="card center"
       style="margin-top:16px"
     >
+
       <h2>
-        MCQ marks: ${score} / ${TOTAL_QUESTIONS}
+        MCQ marks:
+        ${score} / ${TOTAL_QUESTIONS}
       </h2>
+
     </div>
 
-    ${QUESTIONS.map((question, index) => {
+    ${QUESTIONS.map(
+      (question, index) => {
 
-      const answer = STATE.answers[index];
-      const correct = answer === question[2];
+        const answer =
+          STATE.answers[index];
 
-      const yourAnswer =
-        answer === null
-          ? (
-              STATE.skipped[index]
-                ? "⏭️ Skipped (time over)"
-                : "Not answered"
-            )
-          : `${OPTION_LABELS[answer]}) ${question[1][answer]}`;
+        const correct =
+          answer === question[2];
 
-      return `
-        <div class="rv ${correct ? "good" : answer === null ? "skp" : ""}">
+        const yourAnswer =
+          answer === null
+            ? (
+                STATE.skipped[index]
+                  ? "⏭️ Skipped (time over)"
+                  : "Not answered"
+              )
+            : `
+                ${OPTION_LABELS[answer]})
+                ${question[1][answer]}
+              `;
 
-          <b class="m">
-            ${correct ? 1 : 0} / 1
-          </b>
+        return `
 
-          <b>Q${index + 1}.</b>
-          ${question[0]}
+          <div
+            class="rv ${
+              correct
+                ? "good"
+                : answer === null
+                  ? "skp"
+                  : ""
+            }"
+          >
 
-          <br>
+            <b class="m">
+              ${correct ? 1 : 0} / 1
+            </b>
 
-          Your answer:
-          <b>${yourAnswer}</b>
+            <b>
+              Q${index + 1}.
+            </b>
 
-          <br>
+            ${question[0]}
 
-          Correct answer:
-          <b>
-            ${OPTION_LABELS[question[2]]})
-            ${question[1][question[2]]}
-          </b>
+            <br>
 
-        </div>
-      `;
+            Your answer:
+            <b>
+              ${yourAnswer}
+            </b>
 
-    }).join("")}
+            <br>
+
+            Correct answer:
+            <b>
+              ${OPTION_LABELS[question[2]]})
+              ${question[1][question[2]]}
+            </b>
+
+          </div>
+
+        `;
+
+      }
+    ).join("")}
+
   `;
 }
 
-
 /* =========================================================
-   22. START APP
+   START APP
    ========================================================= */
 
 welcome();
+
 </script>
 
 </body>
-  </html>
+</html>
