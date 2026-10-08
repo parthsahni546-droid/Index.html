@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>Motion – Class 7 Science Test</title>
+
+<style>
+/* =========================================================
+   1. THEME VARIABLES
+   ========================================================= */
+
+:root {
+  --bg: #f7e6d3;
+  --card: #fffaf4;
+  --ink: #3a1c10;
+  --rust: #a8421f;
+  --rust2: #d6693a;
+  --sand: #efcfb0;
+  --ok: #2f8a55;
+  --bad: #c23b2b;
+  --mut: #8b6350;
+  --line: #e3bf9f;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #26130c;
+    --card: #3a2116;
+    --ink: #fbe8d8;
+    --sand: #53301f;
+    --mut: #d9ab94;
+    --line: #6a3d28;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #26130c;
+  --card: #3a2116;
+  --ink: #fbe8d8;
+  --sand: #53301f;
+  --mut: #d9ab94;
+  --line: #6a3d28;
+}
+
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button,
+select,
+input {
+  font-family: inherit;
+}
+
+#app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 12px 10px 30px;
+}
+
+
+/* =========================================================
+   3. BACKGROUND
+   ========================================================= */
+
+.bgd {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.bgd i {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--rust2);
+  opacity: 0.13;
+  animation: float 14s ease-in-out infinite;
+}
+
+.bgd i:nth-child(1) {
+  width: 380px;
+  height: 380px;
+  left: -90px;
+  top: 8%;
+}
+
+.bgd i:nth-child(2) {
+  width: 260px;
+  height: 260px;
+  right: -60px;
+  top: 40%;
+  animation-delay: -5s;
+}
+
+.bgd i:nth-child(3) {
+  width: 320px;
+  height: 320px;
+  left: 35%;
+  bottom: -140px;
+  animation-delay: -9s;
+}
+
+
+/* =========================================================
+   4. CARDS & TYPOGRAPHY
+   ========================================================= */
+
+.card {
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 4px 0 var(--sand);
+}
+
+.center {
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(26px, 5.5vw, 38px);
+  margin: 0.2em 0;
+  line-height: 1.1;
+  color: var(--rust);
+}
+
+h2 {
+  font-size: clamp(20px, 4.2vw, 28px);
+  margin: 0.3em 0;
+  color: var(--rust);
+}
+
+p {
+  font-size: clamp(15px, 2.9vw, 18px);
+  line-height: 1.5;
+  margin: 0.5em 0;
+}
+
+
+/* =========================================================
+   5. BUTTONS
+   ========================================================= */
+
+.btn {
+  font: inherit;
+  font-size: clamp(15px, 2.9vw, 18px);
+  font-weight: 700;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 20px;
+  background: var(--rust);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #6f2a12;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(5px);
+  box-shadow: 0 1px 0 #6f2a12;
+}
+
+.btn.alt {
+  background: var(--card);
+  color: var(--rust);
+  border: 2px solid var(--rust);
+  box-shadow: 0 4px 0 var(--sand);
+}
+
+.btn.green {
+  background: var(--ok);
+  box-shadow: 0 4px 0 #1b5a35;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================================================
+   6. HERO & ANIMATIONS
+   ========================================================= */
+
+.hero {
+  font-size: 56px;
+  display: inline-block;
+  animation: rock 3s ease-in-out infinite;
+}
+
+@keyframes rock {
+  0%, 100% {
+    transform: translateX(-14px);
+  }
+
+  50% {
+    transform: translateX(14px);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translate(30px, -40px) scale(1.1);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   7. RULES
+   ========================================================= */
+
+.rule {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--sand);
+  border-radius: 12px;
+  padding: 9px 14px;
+  margin: 8px 0;
+  font-size: clamp(14px, 2.7vw, 17px);
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideIn 0.6s forwards;
+}
+
+.rule b {
+  font-size: 26px;
+}
+
+.chk {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: clamp(14px, 2.7vw, 17px);
+  margin: 16px 0;
+  cursor: pointer;
+}
+
+.chk input {
+  width: 22px;
+  height: 22px;
+  accent-color: var(--rust);
+}
+
+
+/* =========================================================
+   8. QUIZ HEADER & NAVIGATION
+   ========================================================= */
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.badge {
+  background: var(--rust);
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.badge.rev {
+  background: var(--ok);
+  animation: pulse 1.6s infinite;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+  margin: 8px 0 14px;
+}
+
+.nb {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  height: 36px;
+  border-radius: 9px;
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s;
+}
+
+.nb:hover {
+  transform: scale(1.06);
+}
+
+.nb.ans {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: #fff;
+}
+
+.nb.sk {
+  background: var(--bad);
+  border-color: var(--bad);
+  color: #fff;
+}
+
+.nb.cur {
+  border-color: var(--rust);
+  box-shadow: 0 0 0 2px var(--rust2);
+  transform: scale(1.05);
+  background: var(--rust2);
+  color: #fff;
+}
+
+.nb small {
+  position: absolute;
+  top: -6px;
+  right: -3px;
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   9. QUESTION & TIMER
+   ========================================================= */
+
+.qrow {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.q {
+  font-size: clamp(16px, 3.3vw, 21px);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.ring {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex: none;
+}
+
+.ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring .tx {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.ring.low .tx {
+  color: var(--bad);
+  animation: blink 0.5s infinite;
+}
+
+
+/* =========================================================
+   10. OPTIONS
+   ========================================================= */
+
+.opt {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: clamp(15px, 3vw, 18px);
+  background: var(--card);
+  color: var(--ink);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.opt:hover:not(:disabled) {
+  border-color: var(--rust);
+}
+
+.opt i {
+  font-style: normal;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  border-radius: 50%;
+  background: var(--sand);
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+}
+
+.opt.sel {
+  background: var(--rust);
+  color: #fff;
+  border-color: var(--rust);
+}
+
+.opt.sel i {
+  background: #fff;
+  color: var(--rust);
+}
+
+.opt:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   11. QUIZ FOOTER & MESSAGES
+   ========================================================= */
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.lockmsg {
+  background: var(--bad);
+  color: #fff;
+  border-radius: 10px;
+  padding: 7px 12px;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+
+/* =========================================================
+   12. TOAST & MODAL
+   ========================================================= */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  top: calc(8px + env(safe-area-inset-top, 0px));
+  transform: translate(-50%, -80px);
+  background: var(--ink);
+  color: var(--bg);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  transition: transform 0.2s;
+  z-index: 9;
+  max-width: 92vw;
+  text-align: center;
+  pointer-events: none;
+}
+
+.toast.on {
+  transform: translate(-50%, 0);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #0009;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  padding: 18px;
+}
+
+.modal .card {
+  max-width: 560px;
+  animation: pop 0.35s;
+}
+
+
+/* =========================================================
+   13. OTHER COMPONENTS
+   ========================================================= */
+
+.yn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+  animation: pop 0.4s;
+}
+
+.two {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.tick {
+  font-size: 60px;
+  animation: pop 0.6s;
+}
+
+select {
+  font: inherit;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid var(--rust);
+  background: var(--card);
+  color: var(--ink);
+  width: 100%;
+  margin: 14px 0;
+}
+
+.score {
+  font-size: 44px;
+  font-weight: 800;
+  color: var(--rust);
+}
+
+.rv {
+  border-left: 6px solid var(--bad);
+  background: var(--card);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: clamp(14px, 2.7vw, 17px);
+}
+
+.rv.good {
+  border-color: var(--ok);
+}
+
+.rv.skp {
+  border-color: var(--mut);
+}
+
+.rv b.m {
+  float: right;
+}
+
+
+/* =========================================================
+   14. RESPONSIVE
+   ========================================================= */
+
+@media (min-width: 640px) {
+  .nav {
+    grid-template-columns: repeat(15, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .rule {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =======================================================
+     BACKGROUND
+     ======================================================= -->
+
+<div class="bgd">
+  <i></i>
+  <i></i>
+  <i></i>
+</div>
+
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+
+
+<script>
+/* =========================================================
+   1. QUESTIONS
+   ========================================================= */
+
+const QUESTIONS = [
+  [
+    "Which formula is used to calculate speed?",
+    ["Distance × Time", "Distance ÷ Time", "Time ÷ Distance", "Distance + Time"],
+    1
+  ],
+  [
+    "What is the SI unit of speed?",
+    ["km/h", "m/min", "m/s", "cm/h"],
+    2
+  ],
+  [
+    "A car travels 120 km in 2 hours. What is its speed?",
+    ["40 km/h", "240 km/h", "100 km/h", "60 km/h"],
+    3
+  ],
+  [
+    "Which instrument shows the distance travelled by a vehicle?",
+    ["Odometer", "Speedometer", "Thermometer", "Stopwatch"],
+    0
+  ],
+  [
+    "What does a speedometer show?",
+    ["Distance travelled", "Time taken", "Weight of the vehicle", "Speed of the vehicle"],
+    3
+  ],
+  [
+    "The motion of a pendulum is an example of which type of motion?",
+    ["Periodic motion", "Straight line motion", "Circular motion", "Random motion"],
+    0
+  ],
+  [
+    "What is the time period of a pendulum?",
+    ["Time of one second", "Time taken to complete one oscillation", "Time of 10 oscillations", "Time for the bob to stop"],
+    1
+  ],
+  [
+    "What does the distance-time graph of an object moving with uniform speed look like?",
+    ["Curved line", "Zigzag line", "Straight slanted line", "Circle"],
+    2
+  ],
+  [
+    "What is the motion called when an object covers equal distances in equal intervals of time?",
+    ["Non-uniform motion", "Uniform motion", "Periodic motion", "Rest"],
+    1
+  ],
+  [
+    "Which of these is an example of non-uniform motion?",
+    ["A car moving in city traffic", "A ceiling fan rotating steadily", "The second hand of a clock", "A train at constant speed on a straight track"],
+    0
+  ],
+  [
+    "A cyclist covers 30 m in 10 s. What is the speed?",
+    ["3 m/s", "300 m/s", "0.3 m/s", "20 m/s"],
+    0
+  ],
+  [
+    "Which quantity is measured in kilometres?",
+    ["Time", "Speed", "Distance", "Oscillation"],
+    2
+  ],
+  [
+    "Which instrument is used to measure small intervals of time?",
+    ["Odometer", "Stopwatch", "Speedometer", "Ruler"],
+    1
+  ],
+  [
+    "A pendulum completes 20 oscillations in 40 seconds. Its time period is:",
+    ["20 s", "0.5 s", "2 s", "800 s"],
+    2
+  ],
+  [
+    "A body is said to be at rest when:",
+    ["Its position changes with time", "Its position does not change with time", "It moves in a circle", "It moves with uniform speed"],
+    1
+  ]
+];
+
+
+/* =========================================================
+   2. CONSTANTS
+   ========================================================= */
+
+const TOTAL_QUESTIONS = QUESTIONS.length;
+const SOLVE_TIME = 30;
+const REVISION_TIME = 15;
+const OPTION_LABELS = "ABCD";
+const SECTIONS = [
+  "Fill in the Blanks",
+  "Assertion & Reasoning",
+  "One Word"
+];
+
+
+/* =========================================================
+   3. APP STATE
+   ========================================================= */
+
+const STATE = {
+  answers: Array(TOTAL_QUESTIONS).fill(null),
+  solveTime: Array(TOTAL_QUESTIONS).fill(SOLVE_TIME),
+  revisionTime: Array(TOTAL_QUESTIONS).fill(REVISION_TIME),
+  locked: Array(TOTAL_QUESTIONS).fill(false),
+  skipped: Array(TOTAL_QUESTIONS).fill(false),
+
+  currentQuestion: 0,
+  mode: "solve",
+  timer: null
+};
+
+const app = document.getElementById("app");
+
+
+/* =========================================================
+   4. GENERAL UTILITIES
+   ========================================================= */
+
+function toast(message) {
+  const element = document.getElementById("toast");
+
+  element.textContent = message;
+  element.classList.add("on");
+
+  clearTimeout(toast.timeout);
+
+  toast.timeout = setTimeout(() => {
+    element.classList.remove("on");
+  }, 1100);
+}
+
+function stopTimer() {
+  clearInterval(STATE.timer);
+  STATE.timer = null;
+}
+
+function showScreen(html) {
+  stopTimer();
+
+  app.innerHTML = html;
+
+  window.scrollTo(0, 0);
+}
+
+
+/* =========================================================
+   5. WELCOME SCREEN
+   ========================================================= */
+
+function welcome() {
+  showScreen(`
+    <div class="card center">
+
+      <div class="hero">🚗</div>
+
+      <h1>Motion Challenge</h1>
+
+      <p>Class 7 · Science</p>
+
+      <p>Beat the clock. Answer smart. Score big!</p>
+
+      <div class="two">
+        <button class="btn" onclick="showRules('mcq')">
+          Start Test
+        </button>
+      </div>
+
+    </div>
+  `);
+}
+
+
+/* =========================================================
+   6. RULES
+   ========================================================= */
+
+function showRules(type) {
+
+  const rules = {
+
+    mcq: {
+      title: "📜 Read the Rules First",
+      checkbox: "I have read all the rules",
+      button: "I'm Ready",
+      action: startSolve,
+
+      items: [
+        ["⏱️", "You get only <b>30 seconds</b> for each question."],
+        ["⏭️", "If time runs out, the question is <b>skipped and locked</b>. Unanswered = 0 marks."],
+        ["⏸️", "Only the question on your screen has a running timer. Leave it, and it pauses."],
+        ["💾", "Your option is saved as soon as you tap it. You can change it later if time is left."],
+        ["🧭", "Use the 1–15 bar on top to jump to any question."],
+        ["🔄", "At the end you can revise: <b>15 seconds</b> per question."]
+      ]
+    },
+
+    rev: {
+      title: "🔄 Revision Rules",
+      checkbox: "I have understood the revision rules",
+      button: "OK, I have understood",
+      action: startRevision,
+
+      items: [
+        ["⏱️", "Each question gets <b>15 seconds</b> for revision."],
+        ["⏪", "Jump to any question. Its timer resumes from where you left it."],
+        ["🔁", "No change in 15 seconds? Your <b>old answer stays</b>."],
+        ["🔒", "Skipped or locked questions cannot be opened for changes."]
+      ]
+    }
+
+  }[type];
+
+  window.startRulesAction = rules.action;
+
+  showScreen(`
+    <div class="card">
+
+      <h2 class="center">${rules.title}</h2>
+
+      ${rules.items.map((item, index) => `
+        <div
+          class="rule"
+          style="animation-delay:${index * 0.45}s"
+        >
+          <b>${item[0]}</b>
+          <span>${item[1]}</span>
+        </div>
+      `).join("")}
+
+      <label class="chk">
+        <input
+          type="checkbox"
+          id="rulesCheckbox"
+          onchange="document.getElementById('rulesGo').disabled = !this.checked"
+        >
+        ${rules.checkbox}
+      </label>
+
+      <div class="center">
+        <button
+          class="btn"
+          id="rulesGo"
+          disabled
+          onclick="startRulesAction()"
+        >
+          ${rules.button}
+        </button>
+      </div>
+
+    </div>
+  `);
+}
+
+
+/* =========================================================
+   7. TEST START
+   ========================================================= */
+
+function startSolve() {
+  STATE.mode = "solve";
+  STATE.currentQuestion = 0;
+  renderQuestion();
+}
+
+function startRevision() {
+  STATE.mode = "rev";
+  STATE.currentQuestion = 0;
+  renderQuestion();
+}
+
+
+/* =========================================================
+   8. TIMER / EDITABILITY
+   ========================================================= */
+
+function isEditable(index) {
+
+  if (STATE.mode === "solve") {
+    return !STATE.locked[index];
+  }
+
+  return (
+    !STATE.locked[index] &&
+    STATE.revisionTime[index] > 0
+  );
+}
+
+function getTime(index) {
+  return STATE.mode === "solve"
+    ? STATE.solveTime[index]
+    : STATE.revisionTime[index];
+}
+
+
+/* =========================================================
+   9. QUESTION SCREEN
+   ========================================================= */
+
+function renderQuestion() {
+
+  const index = STATE.currentQuestion;
+  const isRevision = STATE.mode === "rev";
+  const question = QUESTIONS[index];
+
+  const editable = isEditable(index);
+
+  const navigation = QUESTIONS.map((_, questionIndex) => {
+
+    let className = "nb";
+
+    if (STATE.skipped[questionIndex]) {
+      className += " sk";
+    } else if (STATE.answers[questionIndex] !== null) {
+      className += " ans";
+    }
+
+    if (questionIndex === index) {
+      className += " cur";
+    }
+
+    const lockIcon = STATE.locked[questionIndex]
+      ? "<small>🔒</small>"
+      : "";
+
+    return `
+      <button
+        class="${className}"
+        onclick="goToQuestion(${questionIndex})"
+      >
+        ${questionIndex + 1}
+        ${lockIcon}
+      </button>
+    `;
+
+  }).join("");
+
+
+  let lockMessage = "";
+
+  if (!editable) {
+
+    if (STATE.skipped[index]) {
+      lockMessage = `
+        <div class="lockmsg">
+          🔒 Skipped (time over). This question is locked.
+        </div>
+      `;
+    }
+
+    else if (STATE.locked[index]) {
+      lockMessage = `
+        <div class="lockmsg">
+          🔒 Time over. Your saved answer is locked.
+        </div>
+      `;
+    }
+
+    else {
+      lockMessage = `
+        <div class="lockmsg">
+          🔒 Revision time over. Your old answer stays.
+        </div>
+      `;
+    }
+  }
+
+
+  showScreen(`
+    <div class="card">
+
+      <div class="top">
+
+        <span class="badge ${isRevision ? "rev" : ""}">
+          ${isRevision ? "🔄 Revision Mode Activated" : "MCQ · Motion"}
+        </span>
+
+        <span style="font-size:15px;font-weight:700">
+          Question ${index + 1} / ${TOTAL_QUESTIONS}
+        </span>
+
+      </div>
+
+      <div class="nav">
+        ${navigation}
+      </div>
+
+      ${lockMessage}
+
+      <div class="qrow">
+
+        <p class="q">
+          ${question[0]}
+        </p>
+
+        <div class="ring" id="ring">
+
+          <svg viewBox="0 0 96 96">
+
+            <circle
+              cx="48"
+              cy="48"
+              r="42"
+              fill="none"
+              stroke="var(--sand)"
+              stroke-width="10"
+            />
+
+            <circle
+              id="arc"
+              cx="48"
+              cy="48"
+              r="42"
+              fill="none"
+              stroke="var(--rust)"
+              stroke-width="10"
+              stroke-linecap="round"
+              stroke-dasharray="264"
+              stroke-dashoffset="0"
+            />
+
+          </svg>
+
+          <div class="tx" id="timerText"></div>
+
+        </div>
+
+      </div>
+
+
+      ${question[1].map((option, optionIndex) => `
+        <button
+          class="opt ${STATE.answers[index] === optionIndex ? "sel" : ""}"
+          ${editable ? "" : "disabled"}
+          onclick="selectAnswer(${optionIndex})"
+        >
+          <i>${OPTION_LABELS[optionIndex]}</i>
+          ${option}
+        </button>
+      `).join("")}
+
+
+      <div class="foot">
+
+        <button
+          class="btn alt"
+          ${index === 0 ? "style='visibility:hidden'" : ""}
+          onclick="goToQuestion(${index - 1})"
+        >
+          ← Verify / Previous
+        </button>
+
+        <button
+          class="btn ${index === TOTAL_QUESTIONS - 1 && isRevision ? "green" : ""}"
+          onclick="nextQuestion()"
+        >
+          ${index === TOTAL_QUESTIONS - 1
+            ? (isRevision ? "Final Submit ✔" : "Finish ✔")
+            : "Next →"}
+        </button>
+
+      </div>
+
+    </div>
+  `);
+
+
+  updateTimerDisplay();
+
+  STATE.timer = setInterval(tick, 1000);
+}
+
+
+/* =========================================================
+   10. TIMER DISPLAY
+   ========================================================= */
+
+function updateTimerDisplay() {
+
+  const index = STATE.currentQuestion;
+  const maxTime =
+    STATE.mode === "rev"
+      ? REVISION_TIME
+      : SOLVE_TIME;
+
+  const time = getTime(index);
+
+  const timerText = document.getElementById("timerText");
+  const arc = document.getElementById("arc");
+  const ring = document.getElementById("ring");
+
+  if (!timerText || !arc || !ring) return;
+
+  timerText.textContent = time;
+
+  arc.style.strokeDashoffset =
+    264 * (1 - time / maxTime);
+
+  arc.style.stroke =
+    time <= 10
+      ? "var(--bad)"
+      : "var(--rust)";
+
+  ring.classList.toggle(
+    "low",
+    time <= 10 &&
+    time > 0 &&
+    isEditable(index)
+  );
+}
+
+
+/* =========================================================
+   11. TIMER TICK
+   ========================================================= */
+
+function tick() {
+
+  const index = STATE.currentQuestion;
+
+  if (!isEditable(index)) {
+    return;
+  }
+
+  if (STATE.mode === "solve") {
+    STATE.solveTime[index]--;
+  } else {
+    STATE.revisionTime[index]--;
+  }
+
+  updateTimerDisplay();
+
+
+  if (getTime(index) <= 0) {
+
+    if (STATE.mode === "solve") {
+
+      STATE.locked[index] = true;
+
+      if (STATE.answers[index] === null) {
+        STATE.skipped[index] = true;
+        toast("⏭️ Time over. Question skipped.");
+      } else {
+        toast("⏱️ Time over. Your answer is locked.");
+      }
+
+      if (index < TOTAL_QUESTIONS - 1) {
+        STATE.currentQuestion = index + 1;
+        renderQuestion();
+      } else {
+        showEndChoice();
+      }
+
+    } else {
+
+      toast("⏱️ Revision time over. Old answer stays.");
+      renderQuestion();
+    }
+  }
+}
+
+
+/* =========================================================
+   12. NAVIGATION
+   ========================================================= */
+
+function goToQuestion(index) {
+
+  if (
+    index < 0 ||
+    index >= TOTAL_QUESTIONS
+  ) {
+    return;
+  }
+
+  STATE.currentQuestion = index;
+
+  renderQuestion();
+}
+
+
+/* =========================================================
+   13. ANSWER SELECTION
+   ========================================================= */
+
+function selectAnswer(optionIndex) {
+
+  const index = STATE.currentQuestion;
+
+  if (!isEditable(index)) {
+    return;
+  }
+
+  STATE.answers[index] = optionIndex;
+
+  renderQuestion();
+}
+
+
+/* =========================================================
+   14. NEXT QUESTION
+   ========================================================= */
+
+function nextQuestion() {
+
+  const index = STATE.currentQuestion;
+
+  if (STATE.answers[index] !== null) {
+    toast(
+      "✅ Your answer has been saved. You can change it later."
+    );
+  }
+
+  if (index < TOTAL_QUESTIONS - 1) {
+
+    STATE.currentQuestion = index + 1;
+    renderQuestion();
+
+  } else {
+
+    if (STATE.mode === "rev") {
+      submitAnswers();
+    } else {
+      showEndChoice();
+    }
+  }
+}
+
+
+/* =========================================================
+   15. END OF MCQ
+   ========================================================= */
+
+function showEndChoice() {
+
+  const answered =
+    STATE.answers.filter(answer => answer !== null).length;
+
+  showScreen(`
+    <div class="card center">
+
+      <div class="hero" style="animation:none">📝</div>
+
+      <h2>You reached the end of the MCQs</h2>
+
+      <p>
+        Answered:
+        <b>${answered}</b>
+        of
+        ${TOTAL_QUESTIONS}
+      </p>
+
+      <div class="two">
+
+        <button
+          class="btn alt"
+          onclick="
+            document.getElementById('revisionChoice').innerHTML = \`
+              <div class='yn'>
+                <button class='btn green' onclick='showRules(\"rev\")'>
+                  Yes, revise
+                </button>
+
+                <button
+                  class='btn'
+                  style='background:#7a6a62;box-shadow:0 6px 0 #4b4039'
+                  onclick='noRevision()'
+                >
+                  No
+                </button>
+              </div>
+            \`
+          "
+        >
+          ✏️ Do you want to revise?
+        </button>
+
+
+        <button
+          class="btn"
+          onclick="submitAnswers()"
+        >
+          ✅ Submit Your Answers
+        </button>
+
+      </div>
+
+      <div id="revisionChoice"></div>
+
+    </div>
+  `);
+}
+
+
+/* =========================================================
+   16. NO REVISION
+   ========================================================= */
+
+function noRevision() {
+
+  const modal = document.createElement("div");
+
+  modal.className = "modal";
+
+  modal.innerHTML = `
+    <div class="card center">
+
+      <h2>You chose No</h2>
+
+      <p>
+        Since you selected No, it's your wish!
+        Now submit your answers.
+      </p>
+
+      <button
+        class="btn"
+        onclick="this.closest('.modal').remove()"
+      >
+        OK
+      </button>
+
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+
+
+/* =========================================================
+   17. SUBMISSION
+   ========================================================= */
+
+function submitAnswers() {
+
+  showScreen(`
+    <div class="card center">
+
+      <div class="tick">✅</div>
+
+      <h1>Your MCQs are submitted!</h1>
+
+      <p>
+        Let's continue to
+        <b>Fill in the Blanks</b>.
+      </p>
+
+      <div class="two">
+        <button
+          class="btn"
+          onclick="showProgressSection(0)"
+        >
+          Start Here
+        </button>
+      </div>
+
+    </div>
+  `);
+}
+
+
+/* =========================================================
+   18. UPCOMING SECTIONS
+   ========================================================= */
+
+function showProgressSection(sectionIndex) {
+
+  showScreen(`
+    <div class="card center">
+
+      <div class="hero" style="animation:none">🚧</div>
+
+      <h2>${SECTIONS[sectionIndex]}</h2>
+
+      <p>
+        This section is under progress.
+      </p>
+
+      <div class="two">
+
+        <button
+          class="btn"
+          onclick="${
+            sectionIndex < 2
+              ? `showProgressSection(${sectionIndex + 1})`
+              : "finishTest()"
+          }"
+        >
+          Next →
+        </button>
+
+      </div>
+
+    </div>
+  `);
+}
+
+
+/* =========================================================
+   19. FINAL SCREEN
+   ========================================================= */
+
+function finishTest() {
+
+  showScreen(`
+    <div class="card center">
+
+      <div class="tick">🎉</div>
+
+      <h1>All your answers have been submitted!</h1>
+
+      <p>
+        Let's check your marks.
+      </p>
+
+      <div class="two">
+
+        <button
+          class="btn"
+          onclick="showResult()"
+        >
+          Check Your MCQ Answers
+        </button>
+
+      </div>
+
+    </div>
+  `);
+}
+
+
+/* =========================================================
+   20. RESULT
+   ========================================================= */
+
+function calculateScore() {
+
+  return STATE.answers.filter(
+    (answer, index) =>
+      answer === QUESTIONS[index][2]
+  ).length;
+}
+
+function showResult() {
+
+  const score = calculateScore();
+
+  showScreen(`
+    <div class="card center">
+
+      <h2>🏆 Your Result</h2>
+
+      <div class="score">
+        ${score} / ${TOTAL_QUESTIONS}
+      </div>
+
+      <p>
+        Total marks (MCQ section)
+      </p>
+
+      <select
+        id="resultSection"
+        onchange="showResultDetails(this.value)"
+      >
+        <option value="">
+          Choose a section to view…
+        </option>
+
+        <option value="mcq">
+          📘 Check your MCQ marks
+        </option>
+      </select>
+
+    </div>
+
+    <div id="resultDetails"></div>
+  `);
+}
+
+
+/* =========================================================
+   21. RESULT DETAILS
+   ========================================================= */
+
+function showResultDetails(value) {
+
+  const container =
+    document.getElementById("resultDetails");
+
+  if (!value) {
+    container.innerHTML = "";
+    return;
+  }
+
+  const score = calculateScore();
+
+  container.innerHTML = `
+    <div
+      class="card center"
+      style="margin-top:16px"
+    >
+      <h2>
+        MCQ marks: ${score} / ${TOTAL_QUESTIONS}
+      </h2>
+    </div>
+
+    ${QUESTIONS.map((question, index) => {
+
+      const answer = STATE.answers[index];
+      const correct = answer === question[2];
+
+      const yourAnswer =
+        answer === null
+          ? (
+              STATE.skipped[index]
+                ? "⏭️ Skipped (time over)"
+                : "Not answered"
+            )
+          : `${OPTION_LABELS[answer]}) ${question[1][answer]}`;
+
+      return `
+        <div class="rv ${correct ? "good" : answer === null ? "skp" : ""}">
+
+          <b class="m">
+            ${correct ? 1 : 0} / 1
+          </b>
+
+          <b>Q${index + 1}.</b>
+          ${question[0]}
+
+          <br>
+
+          Your answer:
+          <b>${yourAnswer}</b>
+
+          <br>
+
+          Correct answer:
+          <b>
+            ${OPTION_LABELS[question[2]]})
+            ${question[1][question[2]]}
+          </b>
+
+        </div>
+      `;
+
+    }).join("")}
+  `;
+}
+
+
+/* =========================================================
+   22. START APP
+   ========================================================= */
+
+welcome();
+</script>
+
+</body>
+  </html>
